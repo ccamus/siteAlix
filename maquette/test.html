@@ -124,31 +124,39 @@
 			</div>
 		</div>
 	</div>
-<script type="text/javascript">
-		function displayBlocAccueil(bloc){
-			var imgAccueil = getChildByClassName(bloc,"img-accueil");
-			var image = getChildByClassName(imgAccueil,"img-img-accueil");
-			var span = getChildByClassName(imgAccueil,"text-content");
-			span.style.height = image.clientHeight+"px";
-			span.style.width = image.clientWidth+"px";
-		}
-		
-		function getChildByClassName(parent, className){
-			var retour = null;
-			for (var i = 0; i < parent.childNodes.length; i++) {
-				if (parent.childNodes[i].className == className) {
-				  retour = parent.childNodes[i];
-				  break;
-				}        
+	<script type="text/javascript" src="lib/masonry.min.js"></script>
+	<script type="text/javascript" src="lib/domready.js"></script>
+	<script type="text/javascript">
+		 DomReady.ready(function() { PageAccueil.initPageAccueil(); });
+		(function(){
+			var PageAccueil = window.PageAccueil = {};
+			
+			function displayBlocAccueil(bloc){
+				var imgAccueil = getChildByClassName(bloc,"img-accueil");
+				var image = getChildByClassName(imgAccueil,"img-img-accueil");
+				var span = getChildByClassName(imgAccueil,"text-content");
+				span.style.height = image.clientHeight+"px";
+				span.style.width = image.clientWidth+"px";
 			}
-			return retour;
-		}
-		
-		var blocsAccueil = document.getElementsByClassName("bloc-accueil");
-		for(i = 0; i < blocsAccueil.length;i++){
-			displayBlocAccueil(blocsAccueil[i]);
-		}
+			
+			function getChildByClassName(parent, className){
+				var retour = null;
+				for (var i = 0; i < parent.childNodes.length; i++) {
+					if (parent.childNodes[i].className == className) {
+					  retour = parent.childNodes[i];
+					  break;
+					}        
+				}
+				return retour;
+			}
+			
+			PageAccueil.initPageAccueil = function (){
+				var blocsAccueil = document.getElementsByClassName("bloc-accueil");
+				for(i = 0; i < blocsAccueil.length;i++){
+					displayBlocAccueil(blocsAccueil[i]);
+				}
+			}
+		})();
 	</script>
-<script type="text/javascript" src="lib/masonry.min.js"></script>
 </body>
 </html>
