@@ -1,0 +1,81 @@
+/****************** bloc image accueil ******************/
+div#corps-accueil{
+	margin: 0 10%;
+}
+
+div.img-accueil{
+	position: relative;
+	overflow:hidden;
+}
+
+span.text-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+span.text-content {
+	text-transform: uppercase;
+	font-family: 'Quicksand', sans-serif;
+    font-size: 26px;
+	background: rgba(255,255,255,0.5);
+	color: black;
+	cursor: pointer;
+	display: table;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	opacity: 0;
+	-webkit-transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	-o-transition: opacity 500ms;
+	transition: opacity 500ms;
+}
+span.text-content p{
+	margin: 0;
+}
+
+span.text-content p.sous-titre{
+    font-size: 13px;
+}
+
+div.bloc-accueil:hover span.text-content {
+  opacity: 1;
+}
+
+div.img-accueil img{
+	bottom:0px;
+	width:100%;
+}
+
+/****************** MASONRY ******************/
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+/* ---- grid ---- */
+
+.grid {
+  margin: 0 auto;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-item {
+  width: 106px;
+  float: left;
+  padding:2px;
+}
+
+.grid-item--width2 { width: 212px; }
+.grid-item--width3 { width: 318px; }
+.grid-item--width4 { width: 424px; }
+
