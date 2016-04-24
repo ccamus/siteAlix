@@ -1,0 +1,154 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="style.css">
+	</head>
+<body>
+	<div class="header">
+		<h1>Alix Rebora</h1>
+		<ul>
+			<li><a href="#">Work</a></li>
+			<li><a href="#">Tumblr</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">About</a></li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+
+	<div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 106, "isFitWidth": true }'>
+		<div class="grid-item bloc-accueil">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/thumbnail-722.png">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/thumbnail-telenantes.png">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/thumbnail-apo33.png">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil grid-item--width3">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/nautile-672x372.jpg">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil grid-item--width2">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/Quantika- Origines. 2014.JPG">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/thumbnail-telenantes.png">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/thumbnail-apo33.png">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil grid-item--width3">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/nautile-672x372.jpg">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil grid-item--width2">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/Quantika- Origines. 2014.JPG">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/thumbnail-722.png">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/thumbnail-apo33.png">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil grid-item--width2">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/Quantika- Origines. 2014.JPG">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/thumbnail-apo33.png">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/thumbnail-apo33.png">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil grid-item--width3">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/nautile-672x372.jpg">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/thumbnail-722.png">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/thumbnail-telenantes.png">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+		<div class="grid-item bloc-accueil">
+			<div class="img-accueil">
+				<img class="img-img-accueil" src="img/thumbnail-apo33.png">
+				<span class="text-content"><span>Bla bla</span></span>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+		function displayBlocAccueil(bloc){
+			var imgAccueil = getChildByClassName(bloc,"img-accueil");
+			var image = getChildByClassName(imgAccueil,"img-img-accueil");
+			var span = getChildByClassName(imgAccueil,"text-content");
+			span.style.height = image.clientHeight+"px";
+			span.style.width = image.clientWidth+"px";
+		}
+		
+		function getChildByClassName(parent, className){
+			var retour = null;
+			for (var i = 0; i < parent.childNodes.length; i++) {
+				if (parent.childNodes[i].className == className) {
+				  retour = parent.childNodes[i];
+				  break;
+				}        
+			}
+			return retour;
+		}
+		
+		var blocsAccueil = document.getElementsByClassName("bloc-accueil");
+		for(i = 0; i < blocsAccueil.length;i++){
+			displayBlocAccueil(blocsAccueil[i]);
+		}
+	</script>
+<script type="text/javascript" src="lib/masonry.min.js"></script>
+</body>
+</html>
