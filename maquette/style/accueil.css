@@ -18,7 +18,7 @@ span.text-content {
 	text-transform: uppercase;
 	font-family: 'Quicksand', sans-serif;
     font-size: 26px;
-	background: rgba(255,255,255,0.5);
+	background: rgba(255,255,255,0.7);
 	color: black;
 	cursor: pointer;
 	display: table;
@@ -38,6 +38,7 @@ span.text-content p{
 
 span.text-content p.sous-titre{
     font-size: 13px;
+    margin-top: 5px;
 }
 
 div.bloc-accueil:hover span.text-content {
@@ -72,7 +73,7 @@ body { font-family: sans-serif; }
 .grid-item {
   width: 106px;
   float: left;
-  padding:2px;
+  padding:30px;
 }
 
 .grid-item--width2 { width: 212px; }

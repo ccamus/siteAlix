@@ -5,18 +5,18 @@ body{
 /****************** Header ******************/
 div#header{
 	margin-bottom: 60px;
-    font-variant: corps;
 	text-transform: uppercase;
 	font-family: 'Quicksand';
+	margin-top: 30px;
 }
 div#header h1{
 	font-family: 'intro_regular';
 	text-align: center;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 div#header ul{
-	font-size: 21px;
+	font-size: 15px;
 	list-style: none;
 	text-align: center;
 	margin: 0;
@@ -39,9 +39,9 @@ div#header ul li a:hover, ul li a:focus{
 }
 
 div#choix-lang{
-	font-size: 15px;
+	font-size: 11px;
 	float: right;
-	margin-right: 90px;
+	margin-right: 10%;
 }
 
 #choix-lang .secondaire{
@@ -60,17 +60,17 @@ div#choix-lang{
 }
 
 /****************** Footer ******************/
-div#footer{
+footer{
 	background-color: #000;
-	bottom: 0;
+	/*bottom: 0;
 	left: 0;
 	right: 0;
-	margin-top:50px;
+	margin-top:50px;*/
 	font-family: 'Quicksand', sans-serif;
 }
-div#content-footer{
+footer div#content-footer{
 	margin: 0 10%;
-	padding: 20px;
+	padding: 20px 0;
 	color:#fff;
 }
 .footer-case:first-child {
@@ -86,11 +86,17 @@ div#content-footer{
 .footer-case.right {
     float: right;
 }
-div#footer p.coordonnees{
-	font-size:17px;
+.footer-case p {
+    margin: 12px 0;
 }
-div#footer p.mentions{
-	font-size:15px;
+footer p.coordonnees{
+	font-size:12px;
+}
+footer p.mentions{
+	font-size:10px;
+}
+.share-icons{
+	height:13px;
 }
 
 /****************** Autres ******************/
