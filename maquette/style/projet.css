@@ -1,1 +1,40 @@
+/*********** BLOCS ***********/
+div#page-projet{
+	margin:0 10%;
+}
+div#page-projet-content{
+	margin:auto;
+}
+div#page-projet img{
+	width:100%;
+}
+div#projet-bloc-middle{
+	margin:0 5%;
+}
 
+div#projet-bloc-middle__left{
+	width: 39%;
+	float: left;
+}
+p#bloc-description{
+	margin-left:2%;
+	width: 59%;
+	float: right;
+}
+/*********** FONTS ***********/
+div#page-projet-content #projet-bloc-middle__left h1 {
+	font-family: 'intro_regular';
+	text-transform: uppercase;
+    font-size: 13px;
+}
+div#page-projet-content #projet-bloc-middle__left p {
+	font-family: 'Quicksand';
+    font-size: 13px;
+}
+div#page-projet-content #bloc-title p {
+	text-transform: uppercase;
+}
+div#page-projet-content #bloc-description{
+	font-family: 'Quicksand';
+    font-size: 13px;
+}
