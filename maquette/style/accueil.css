@@ -9,9 +9,10 @@ div.img-accueil{
 }
 
 span.text-content span {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 30px;
 }
 
 span.text-content {
@@ -53,27 +54,29 @@ div.img-accueil img{
 /****************** MASONRY ******************/
 * { box-sizing: border-box; }
 
-body { font-family: sans-serif; }
+body { 
+	font-family: sans-serif;
+}
 
 /* ---- grid ---- */
 
 .grid {
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 /* clearfix */
 .grid:after {
-  content: '';
-  display: block;
-  clear: both;
+	content: '';
+	display: block;
+	clear: both;
 }
 
 /* ---- grid-item ---- */
 
 .grid-item {
-  width: 106px;
-  float: left;
-  padding:30px;
+	width: 106px;
+	float: left;
+	padding:30px;
 }
 
 .grid-item--width2 { width: 212px; }

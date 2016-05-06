@@ -38,3 +38,53 @@ div#page-projet-content #bloc-description{
 	font-family: 'Quicksand';
     font-size: 13px;
 }
+/*********** SWITCHS ***********/
+.switch-projet{
+	position : fixed;
+	top : 45%;
+}
+#switch-gauche.switch-projet{
+	left:2px;
+}
+#switch-gauche.switch-projet a{
+	background :url('../img/fleche-gche.png') no-repeat;
+}
+#switch-gauche.switch-projet a:hover{
+	background :url('../img/fleche-gche-hover.png') no-repeat;
+}
+#switch-droit.switch-projet {
+	right:2px;
+}
+#switch-droit.switch-projet a{
+	background :url('../img/fleche-dte.png') no-repeat;
+}
+#switch-droit.switch-projet a:hover{
+	background :url('../img/flche-dte-hover.png') no-repeat;
+}
+.switch-projet a{
+	width: 39px;
+	height: 39px;
+	display:block;
+}
+.switch-projet a > span{
+	display: none; 
+	text-decoration:none;
+	width: 200px;
+	margin-top: 25%;
+	font-family: 'Quicksand';
+    font-size: 17px;
+	font-weight : bold;
+}
+.switch-projet a:hover span{
+	color: #000000; 
+	background: #ffffff;
+	display: inline-block;
+}
+.switch-projet a:hover span.title-left{
+	margin-left:40px;
+}
+.switch-projet a:hover span.title-right{
+	position: relative;
+	right: 204px;
+	text-align: right;
+}
