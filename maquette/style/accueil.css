@@ -12,7 +12,6 @@ span.text-content span {
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
-	line-height: 30px;
 }
 
 span.text-content {
@@ -40,6 +39,9 @@ span.text-content p{
 span.text-content p.sous-titre{
     font-size: 13px;
     margin-top: 5px;
+	line-height:20px;
+}
+p.sous-titre{
 }
 
 div.bloc-accueil:hover span.text-content {

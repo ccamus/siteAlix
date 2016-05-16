@@ -6,15 +6,15 @@ DomReady.ready(function() { PageProjet.initPageProjet(); });
 	var PageProjet = window.PageProjet = {};
 	
 	// On set la taille max des images de la page projet afin qu'elle ne dépasse pas leur taille d'origine
-	function setMaxWidthProjet(classBloc){
-		var bloc = document.getElementById(classBloc);
+	function setMaxWidthProjet(){
+		var bloc = document.getElementById("projet-bloc-top");
 		var img = siteUtils.getChildByClassName(bloc, "img-projet");
-		img.style.maxWidth = img.naturalWidth+"px";
+		var projetContent = document.getElementById("page-projet-content");
+		projetContent.style.maxWidth = img.naturalWidth+"px";
 	}
 	
 	// Initialisation de la page projet
 	PageProjet.initPageProjet = function (){
-		setMaxWidthProjet("projet-bloc-top");
-		setMaxWidthProjet("projet-bloc-bottom");		
+		setMaxWidthProjet();		
 	}
 })();

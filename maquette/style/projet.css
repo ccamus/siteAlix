@@ -9,9 +9,18 @@ div#page-projet img{
 	width:100%;
 }
 div#projet-bloc-middle{
-	margin:0 5%;
+	margin:3% 5%;
+	overflow: hidden;
 }
-
+div#projet-bloc-middle a{
+	text-decoration: none;
+	color: #000000;
+}
+div#projet-bloc-middle a:hover, a:focus{
+	border-bottom-style:solid;
+	padding-bottom: 4px;
+	border-width: 2px;
+}
 div#projet-bloc-middle__left{
 	width: 39%;
 	float: left;
@@ -26,13 +35,18 @@ div#page-projet-content #projet-bloc-middle__left h1 {
 	font-family: 'intro_regular';
 	text-transform: uppercase;
     font-size: 13px;
+	margin-bottom: 6px;
 }
 div#page-projet-content #projet-bloc-middle__left p {
 	font-family: 'Quicksand';
     font-size: 13px;
+	margin-top:0;
 }
 div#page-projet-content #bloc-title p {
 	text-transform: uppercase;
+}
+div#page-projet-content #bloc-title {
+	margin-bottom: 20px;
 }
 div#page-projet-content #bloc-description{
 	font-family: 'Quicksand';
@@ -69,11 +83,13 @@ div#page-projet-content #bloc-description{
 .switch-projet a > span{
 	display: none; 
 	text-decoration:none;
-	width: 200px;
-	margin-top: 25%;
+	width: 240px;
 	font-family: 'Quicksand';
     font-size: 17px;
 	font-weight : bold;
+	line-height: 35px;
+	text-transform: uppercase;
+	white-space:nowrap;
 }
 .switch-projet a:hover span{
 	color: #000000; 
@@ -81,10 +97,10 @@ div#page-projet-content #bloc-description{
 	display: inline-block;
 }
 .switch-projet a:hover span.title-left{
-	margin-left:40px;
+	margin-left:60px;
 }
 .switch-projet a:hover span.title-right{
 	position: relative;
-	right: 204px;
+	right: 270px;
 	text-align: right;
 }
