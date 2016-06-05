@@ -1,3 +1,23 @@
+/****************** filtres accueil *********************/
+div#filtres img{
+	float:left;
+	margin-right:10px;
+}
+div#filtres img:hover, img:focus{
+	border-color:black;
+	border-bottom-style:solid;
+	text-decoration:none;
+	padding-bottom: 7px;
+	border-width: 4px;
+}
+div#filtres a.liens{
+	text-transform: uppercase;
+	font-family: 'Quicksand';
+	font-size: 16px;
+	text-decoration: none;
+	color: black;
+}
+
 /****************** bloc image accueil ******************/
 div#corps-accueil{
 	margin: 0 10%;
