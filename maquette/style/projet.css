@@ -53,54 +53,63 @@ div#page-projet-content #bloc-description{
     font-size: 13px;
 }
 /*********** SWITCHS ***********/
-.switch-projet{
+#switch-projet{
 	position : fixed;
 	top : 45%;
+	width : 100%;
 }
-#switch-gauche.switch-projet{
-	left:2px;
+.switch-projet__cell{
+	display:block;
+	line-height: 35px;
 }
-#switch-gauche.switch-projet a{
+.switch-projet__cell.cell--left{
+	float:left;
+	margin-left : 5%;
+}
+.switch-projet__cell.cell--left span{
+	padding-left : 5%;
+}
+.switch-projet__cell.switch-projet__cell *{
+	float:inherit;
+}
+.switch-projet__cell.cell--right{
+	float:right;
+	margin-right : 5%;
+}
+.switch-projet__cell.cell--right span{
+	padding-right : 5%;
+}
+.switch-projet__cell.large-cell{
+	width:45%;
+}
+a.switch-projet__cell{
+	width: 38px;
+}
+.switch-projet__cell{
+	height: 37px;
+}
+#switch-projet a#switch-gauche.switch-projet__cell{
 	background :url('../img/fleche-gche.png') no-repeat;
 }
-#switch-gauche.switch-projet a:hover{
+#switch-projet a#switch-gauche.switch-projet__cell:hover{
 	background :url('../img/fleche-gche-hover.png') no-repeat;
 }
-#switch-droit.switch-projet {
-	right:2px;
-}
-#switch-droit.switch-projet a{
+#switch-projet a#switch-droit.switch-projet__cell{
 	background :url('../img/fleche-dte.png') no-repeat;
 }
-#switch-droit.switch-projet a:hover{
+#switch-projet a#switch-droit.switch-projet__cell:hover{
 	background :url('../img/flche-dte-hover.png') no-repeat;
 }
-.switch-projet a{
-	width: 39px;
-	height: 39px;
-	display:block;
-}
-.switch-projet a > span{
-	display: none; 
-	text-decoration:none;
-	width: 240px;
+#switch-projet .switch-projet__cell span{
+	background-color : white;
 	font-family: 'Quicksand';
-    font-size: 17px;
-	font-weight : bold;
-	line-height: 35px;
-	text-transform: uppercase;
-	white-space:nowrap;
+	font-size: 13px;
+	text-transform:uppercase;
+	display : none;
 }
-.switch-projet a:hover span{
-	color: #000000; 
-	background: #ffffff;
-	display: inline-block;
+#switch-projet .switch-projet__cell a:hover + span{
+	display : block;
 }
-.switch-projet a:hover span.title-left{
-	margin-left:60px;
-}
-.switch-projet a:hover span.title-right{
-	position: relative;
-	right: 270px;
-	text-align: right;
+a.switch-projet__cell:focus{
+	border:0;
 }

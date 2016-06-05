@@ -99,20 +99,23 @@ footer div#content-footer{
 	color:#fff;
 }
 .footer-case:first-child {
-    margin-left: 0px;
 }
 .footer-case {
     padding: 0;
-    margin-left: 30px;
+	width: 13.9%;
+	text-align: center;
 }
 .footer-case.left {
     float: left;
 }
+.footer-case.middle {
+    display: inline-block;
+}
 .footer-case.right {
-    float: right;
+	display: inline-block;
 }
 .footer-case p {
-    margin: 12px 0;
+    display: inline-block
 }
 footer p.coordonnees{
 	font-size:12px;
