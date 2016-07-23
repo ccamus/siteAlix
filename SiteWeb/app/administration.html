@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" ng-app="adminsite">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,32 +8,22 @@
 
 		<!-- Bootstrap -->
 		<link href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
-		
+
 		<link href="css/administration.css" rel="stylesheet">
-		
+
 		<!-- Angular js -->
 		<script src="lib/angular.1.5.6.min.js"></script>
 		<script src="lib/angular-route.1.5.6.min.js"></script>
-		
+
 		<!-- Application -->
+		<script src="javascript/app.module.js"></script>
+		<script src="javascript/app.config.js"></script>
+		<script src="javascript/app.controllers.js"></script>
+
 	</head>
 	<body>
-		<div class="container">
-			<div id="login" class="panel panel-default">
-				<div class="panel-body">
-					<div class="input-group">
-						<span class="input-group-addon" id="basic-addon1">Utilisateur</span>
-						<input type="text" class="form-control" placeholder="Utilisateur" aria-describedby="basic-addon1">
-					</div>
-					<br>
-					<div class="input-group">
-						<span class="input-group-addon" id="basic-addon1">Mot de passe</span>
-						<input type="password" class="form-control" placeholder="Mot de passe" aria-describedby="basic-addon1">
-					</div>
-					<br>
-					<button type="submit" class="btn btn-primary btn-sm">Se connecter</button>
-				</div>
-			</div>
+		<div class="container" ng-view>
+
 		</div>
 
 	</body>
