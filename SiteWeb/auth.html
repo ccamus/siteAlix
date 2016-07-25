@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="authentificator">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Administration</title>
+
+		<!-- Bootstrap -->
+		<link href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<link href="css/administration.css" rel="stylesheet">
+
+		<!-- Angular js -->
+		<script src="lib/angular.1.5.8.min.js"></script>
+
+		<!-- Application -->
+		<script src="javascript/auth.controllers.js"></script>
+
+	</head>
+	<body>
+		<div class="container" ng-controller="connexionController">
+      <div class="alert alert-danger" role="alert" ng-show="isError"><b>{{errorMessage}}</b></div>
+
+      <div id="login" class="panel panel-default">
+        <div class="panel-body">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Utilisateur</span>
+            <input type="text" class="form-control" placeholder="Utilisateur" aria-describedby="basic-addon1" ng-model="user.name">
+          </div>
+          <br/>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Mot de passe</span>
+            <input type="password" class="form-control" placeholder="Mot de passe" aria-describedby="basic-addon1" ng-model="user.password">
+          </div>
+          <br/>
+          <button type="button" class="btn btn-primary btn-sm" ng-click="login()">Se connecter</button>
+        </div>
+      </div>
+
+		</div>
+
+	</body>
+</html>

@@ -12,8 +12,8 @@
 		<link href="css/administration.css" rel="stylesheet">
 
 		<!-- Angular js -->
-		<script src="lib/angular.1.5.6.min.js"></script>
-		<script src="lib/angular-route.1.5.6.min.js"></script>
+		<script src="lib/angular.1.5.8.js"></script>
+		<script src="lib/angular-route.1.5.8.js"></script>
 
 		<!-- Application -->
 		<script src="javascript/app.module.js"></script>
@@ -22,7 +22,20 @@
 
 	</head>
 	<body>
-		<div class="container" ng-view>
+		<div class="container">
+
+			<nav ng-controller="barController" class="navbar navbar-default navbar-fixed-top">
+			  <div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">Alix-Administration</a>
+			    </div>
+					<div class="nav navbar-nav navbar-right">
+        		<li><button type="submit" class="btn btn-default navbar-btn" ng-click="deconnexion()">Déconnexion</button></li>
+					</div>
+			  </div>
+			</nav>
+
+			<div id="template" ng-view></div>
 
 		</div>
 

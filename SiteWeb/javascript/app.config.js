@@ -4,10 +4,10 @@ angular.module('adminsite').
       $locationProvider.hashPrefix('!');
 
       $routeProvider.
-        when('/administration', {
-          templateUrl: 'template/adminConnexion.html',
-          controller : 'connexionController'
+        when('/accueil', {
+          templateUrl: 'template/accueil.html',
+          controller : 'accueilController'
         }).
-        otherwise('/administration');
+        otherwise('/accueil');
     }
 ]);
