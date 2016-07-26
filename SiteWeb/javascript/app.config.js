@@ -8,6 +8,10 @@ angular.module('adminsite').
           templateUrl: 'template/accueil.html',
           controller : 'accueilController'
         }).
+        when('/categories', {
+          templateUrl: 'template/categories.html',
+          controller : 'categoriesController'
+        }).
         otherwise('/accueil');
     }
 ]);
