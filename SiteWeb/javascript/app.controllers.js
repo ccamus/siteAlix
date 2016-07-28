@@ -45,6 +45,7 @@ function barController($scope, $http){
  */
 function accueilController($scope, $http){
 
+  CKEDITOR.replace( 'editor1' );
 }
 
 /*
