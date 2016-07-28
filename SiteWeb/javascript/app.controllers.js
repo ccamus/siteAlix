@@ -64,8 +64,7 @@ function categoriesController($scope, $http){
         $scope.categories=response.data;
       },
       function errorCallback(response) {
-        $scope.isError=true;
-        $scope.errorMessage="Impossible de récupérer la liste des catégories";
+        displayAlert(true, "Impossible de récupérer la liste des catégories");
       });
   }
   // Supprime une catégorie sans enregistrer
@@ -96,12 +95,18 @@ function categoriesController($scope, $http){
         };
     $http(req).then(
       function successCallback(response) {
+        displayAlert(false,"Les catégories ont été sauvegardées");
         $scope.init();
       },
       function errorCallback(response) {
-        $scope.isError=true;
-        $scope.errorMessage="Impossible de sauvegarder les catégories";
+        displayAlert(true, "Impossible de sauvegarder les catégories");
       });
+  }
+
+  var displayAlert = function(isError, message){
+    $scope.isAlert=true;
+    $scope.isError=isError;
+    $scope.errorMessage=message;
   }
 
   // Au chargement du controller, on charge les catégories

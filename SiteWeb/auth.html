@@ -22,21 +22,31 @@
 		<div class="container" ng-controller="connexionController">
       <div class="alert alert-danger" role="alert" ng-show="isError"><b>{{errorMessage}}</b></div>
 
-      <div id="login" class="panel panel-default">
-        <div class="panel-body">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Utilisateur</span>
-            <input type="text" class="form-control" placeholder="Utilisateur" aria-describedby="basic-addon1" ng-model="user.name">
-          </div>
-          <br/>
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Mot de passe</span>
-            <input type="password" class="form-control" placeholder="Mot de passe" aria-describedby="basic-addon1" ng-model="user.password">
-          </div>
-          <br/>
-          <button type="button" class="btn btn-primary btn-sm" ng-click="login()">Se connecter</button>
-        </div>
-      </div>
+			<div class="row login">
+				<div class="col-md-6">
+					<div class="form panel panel-default">
+		        <div class="panel-body">
+		          <div class="input-group">
+		            <span class="input-group-addon" id="basic-addon1">Utilisateur</span>
+		            <input type="text" class="form-control" placeholder="Utilisateur" aria-describedby="basic-addon1" ng-model="user.name">
+		          </div>
+		          <br/>
+		          <div class="input-group">
+		            <span class="input-group-addon" id="basic-addon1">Mot de passe</span>
+		            <input type="password" class="form-control" placeholder="Mot de passe" aria-describedby="basic-addon1" ng-model="user.password">
+		          </div>
+		          <br/>
+		          <button type="button" class="btn btn-primary btn-sm" ng-click="login()">Se connecter</button>
+		        </div>
+		      </div>
+				</div>
+				<div class="col-md-6">
+					<div class="jumbotron">
+  					<h2>Alix Administration</h2>
+					</div>
+				</div>
+			</div>
+
 
 		</div>
 

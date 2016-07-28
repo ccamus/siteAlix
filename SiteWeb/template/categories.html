@@ -2,7 +2,7 @@
   <h1>Liste des catégories</h1>
 </div>
 <br/>
-<div class="alert alert-danger" role="alert" ng-show="isError"><b>{{errorMessage}}</b></div>
+<div class="alert {{isError ? 'alert-danger' : 'alert-success'}}" role="alert" ng-show="isAlert"><b>{{errorMessage}}</b></div>
 <ul class="listCategories">
   <li ng-repeat="item in categories">
     <button type="button" class="btn btn-danger btn-xs" ng-click="delCategorie(item.id)" title="Supprimer">

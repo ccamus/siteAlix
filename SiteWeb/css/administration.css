@@ -2,10 +2,11 @@ body{
 	padding-top: 50px;
 }
 
-#login{
-	max-width : 400px;
+.login{
 	margin-top : 100px;
-	text-align : right;
+}
+.login .form{
+	text-align: right;
 }
 
 input.form-control{
