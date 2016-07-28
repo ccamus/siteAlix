@@ -7,3 +7,18 @@ body{
 	margin-top : 100px;
 	text-align : right;
 }
+
+input.form-control{
+	width : auto;
+}
+div.input-group .form-control{
+	width : auto;
+}
+
+/* Écran des catégories */
+ul.listCategories{
+	list-style: none;
+}
+ul.listCategories li{
+	padding: 1px 0;
+}
