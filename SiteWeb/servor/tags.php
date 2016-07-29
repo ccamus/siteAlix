@@ -3,7 +3,7 @@
 include 'properties.php';
 include 'utils.php';
 include 'userUtils.php';
-include 'objects/categorie.php';
+include 'objects/tag.php';
 
 // Démarrage de la session
 session_start();
@@ -15,7 +15,7 @@ if(!isUserAlreadyConnected()){
   if(isset($_GET['action'])){
     switch($_GET['action']){
       case 'list':
-        $retourcode = listCategories();
+        $retourcode = listTags();
         break;
       case 'update':
         $retourcode = update();
@@ -33,47 +33,47 @@ return;
 
 
 /*
- * Renvoi la liste des catégories
+ * Renvoi la liste des tags
  */
-function listCategories(){
-  $categorieList = array();
+function listTags(){
+  $tagList = array();
   try {
     $pdo = getBddConnexion();
 
     // Création de la requête
-    $query = "select * FROM CATEGORIE;";
+    $query = "select * FROM TAG;";
 
     // On boucle sur les résultats
     foreach($pdo->query($query) as $row) {
-      $categorie = new Categorie($row['id'], $row['categorie']);
-      array_push($categorieList, $categorie->toString());
+      $tag = new Tag($row['id'], $row['tag']);
+      array_push($tagList, $tag->toString());
     }
   }catch(PDOException $e) {
       $msg = 'ERREUR PDO dans ' . $e->getFile() . ' L.' . $e->getLine() . ' : ' . $e->getMessage();
       die($msg);
   }
   // On les affiche au format JSON
-  echo json_encode($categorieList);
+  echo json_encode($tagList);
   return 200;
 }
 
 /*
- * Met à jour les catégories (ajout/suppression)
+ * Met à jour les tags (ajout/suppression)
  */
 function update(){
   // Récupération des données depuis la requête
   $postdata = file_get_contents("php://input");
   $request = json_decode($postdata);
-  $newCategories = transformToCategorieList($request->categories);
+  $newTags = transformToTagList($request->tags);
 
   // Supprime les élements
-  $retour = deleteElements($newCategories);
+  $retour = deleteElements($newTags);
   if($retour != 200){
     return $retour;
   }
 
   // Ajoute les élements nouveaux
-  $retour = addNewElements($newCategories);
+  $retour = addNewElements($newTags);
 
   return $retour;
 }
@@ -81,17 +81,17 @@ function update(){
 /**
  * Ajoute les éléments de la liste qui on un id = -1
  */
-function addNewElements($categories){
+function addNewElements($tags){
   $hasItemToInsert = false;
-  $requete = "INSERT INTO CATEGORIE (categorie) VALUES";
+  $requete = "INSERT INTO TAG (tag) VALUES";
   // Création de la requête d'ajout
-  foreach($categories as $item){
+  foreach($tags as $item){
     if($item->getId() == -1){
       if(!$hasItemToInsert){
         $hasItemToInsert = true;
-        $requete .= " (\"" . $item->getCategorie() . "\")";
+        $requete .= " (\"" . $item->getTag() . "\")";
       } else {
-        $requete .= ", (\"" . $item->getCategorie() . "\")";
+        $requete .= ", (\"" . $item->getTag() . "\")";
       }
     }
   }
@@ -116,17 +116,17 @@ function addNewElements($categories){
 /**
  * Supprime en base les éléments qui ne sont pas présents dans la liste passée en paramètre
  */
-function deleteElements($categorieLists){
+function deleteElements($tagLists){
   try {
     $pdo = getBddConnexion();
 
-    $requete = "SELECT id FROM CATEGORIE;";
+    $requete = "SELECT id FROM TAG;";
     $hasItemToDelete = false;
-    $requeteDelete = "DELETE FROM CATEGORIE WHERE";
+    $requeteDelete = "DELETE FROM TAG WHERE";
     // On boucle sur les résultats pour déterminer la liste des items à supprimer
     foreach($pdo->query($requete) as $row) {
       // Si l'item de la base n'est pas dans la liste envoyée, on l'ajoute à la requête de suppression
-      if(!isIdCategorieInList($row['id'], $categorieLists)){
+      if(!isIdTagInList($row['id'], $tagLists)){
         // Si c'est le prmier, on le met juste dans le where, sinon on le met dans un OR
         if(!$hasItemToDelete){
           $requeteDelete .= " id = ".$row['id'];
@@ -152,24 +152,24 @@ function deleteElements($categorieLists){
 }
 
 /*
- * Transforme une liste en liste de catégories
+ * Transforme une liste en liste de tags
  */
-function transformToCategorieList($list){
-  $newCategories = array();
+function transformToTagList($list){
+  $newTags = array();
   foreach($list as $item){
-    $categorie = new Categorie($item->id, $item->categorie);
-    array_push($newCategories, $categorie);
+    $tag = new Tag($item->id, $item->tag);
+    array_push($newTags, $tag);
   }
-  return $newCategories;
+  return $newTags;
 }
 
 /*
- * Recherche dans une liste de catégories si un id est présent
+ * Recherche dans une liste de tags si un id est présent
  */
-function isIdCategorieInList($idCategorie, $list){
+function isIdTagInList($idTag, $list){
   $return = false;
-  foreach($list as $categorie){
-    if($categorie->getId() == $idCategorie){
+  foreach($list as $tag){
+    if($tag->getId() == $idTag){
       $return = true;
       break;
     }

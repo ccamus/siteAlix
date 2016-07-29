@@ -8,9 +8,9 @@ angular.module('adminsite').
           templateUrl: 'template/accueil.html',
           controller : 'accueilController'
         }).
-        when('/categories', {
-          templateUrl: 'template/categories.html',
-          controller : 'categoriesController'
+        when('/tags', {
+          templateUrl: 'template/tags.html',
+          controller : 'tagsController'
         }).
         otherwise('/accueil');
     }

@@ -1,20 +1,20 @@
 <div class="page-header">
-  <h1>Liste des catégories</h1>
+  <h1>Liste des tags</h1>
 </div>
 <br/>
 <div class="alert {{isError ? 'alert-danger' : 'alert-success'}}" role="alert" ng-show="isAlert"><b>{{errorMessage}}</b></div>
-<ul class="listCategories">
-  <li ng-repeat="item in categories">
-    <button type="button" class="btn btn-danger btn-xs" ng-click="delCategorie(item.id)" title="Supprimer">
+<ul class="listTags">
+  <li ng-repeat="item in tags">
+    <button type="button" class="btn btn-danger btn-xs" ng-click="delTag(item.id)" title="Supprimer">
       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
     </button>
-    {{item.categorie}}
+    {{item.tag}}
   </li>
 </ul>
 <br/><br/>
 <div class="input-group">
-  <input placeholder="Nouvelle catégorie" class="form-control" type="text" size="30" maxlength="50" ng-model="addedCategorie">
-  <button class="btn btn-default" type="button" ng-click="addCategorie()">Ajouter</button>
+  <input placeholder="Nouveau tag" class="form-control" type="text" size="30" maxlength="50" ng-model="addedTag">
+  <button class="btn btn-default" type="button" ng-click="addTag()">Ajouter</button>
 </div>
 <br/><br/><br/><br/>
 <button type="button" class="btn btn-default" ng-click="init()">Annuler</button>

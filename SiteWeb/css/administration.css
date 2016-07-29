@@ -17,9 +17,9 @@ div.input-group .form-control{
 }
 
 /* Écran des catégories */
-ul.listCategories{
+ul.listTags{
 	list-style: none;
 }
-ul.listCategories li{
+ul.listTags li{
 	padding: 1px 0;
 }

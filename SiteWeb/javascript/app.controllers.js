@@ -2,7 +2,7 @@
 var adminsite = angular.module('adminsite');
 adminsite.controller('accueilController', ['$scope', '$http', accueilController]);
 adminsite.controller('barController', ['$scope', '$http', barController]);
-adminsite.controller('categoriesController', ['$scope', '$http', categoriesController]);
+adminsite.controller('tagsController', ['$scope', '$http', tagsController]);
 
 /*
  * Controller de la bar de menu
@@ -49,57 +49,57 @@ function accueilController($scope, $http){
 }
 
 /*
- * Controller de l'administration des catégories
+ * Controller de l'administration des tags
  */
-function categoriesController($scope, $http){
-  // Chargement de la liste des catégories
-  var loadCategories = function(){
+function tagsController($scope, $http){
+  // Chargement de la liste des tags
+  var loadTags = function(){
     var req = {
           method: 'GET',
-          url: 'servor/categories.php?action=list',
+          url: 'servor/tags.php?action=list',
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         };
     $http(req).then(
       function successCallback(response) {
-        $scope.categories=response.data;
+        $scope.tags=response.data;
       },
       function errorCallback(response) {
-        displayAlert(true, "Impossible de récupérer la liste des catégories");
+        displayAlert(true, "Impossible de récupérer la liste des tags");
       });
   }
-  // Supprime une catégorie sans enregistrer
-  $scope.delCategorie = function(id){
-    for(var i =0;i < $scope.categories.length; i++){
-      if($scope.categories[i].id === id){
-        $scope.categories.splice(i,1);
+  // Supprime un tag sans enregistrer
+  $scope.delTag = function(id){
+    for(var i =0;i < $scope.tags.length; i++){
+      if($scope.tags[i].id === id){
+        $scope.tags.splice(i,1);
       }
     }
   }
-  // Ajoute une catégorie sans l'enregistrer
-  $scope.addCategorie = function(){
-    $scope.categories.push({'id':-1,'categorie':$scope.addedCategorie});
-    $scope.addedCategorie="";
+  // Ajoute un tag sans l'enregistrer
+  $scope.addTag = function(){
+    $scope.tags.push({'id':-1,'tag':$scope.addedTag});
+    $scope.addedTag="";
   }
   // Initialise l'affichage
   $scope.init = function(){
-    loadCategories();
-    $scope.addedCategorie="";
+    loadTags();
+    $scope.addedTag="";
   }
   // Enregistre les opérations
   $scope.enregistrer = function(){
     var req = {
           method: 'POST',
-          url: 'servor/categories.php?action=update',
+          url: 'servor/tags.php?action=update',
           headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        	data: {categories:$scope.categories}
+        	data: {tags:$scope.tags}
         };
     $http(req).then(
       function successCallback(response) {
-        displayAlert(false,"Les catégories ont été sauvegardées");
+        displayAlert(false,"Les tags ont été sauvegardées");
         $scope.init();
       },
       function errorCallback(response) {
-        displayAlert(true, "Impossible de sauvegarder les catégories");
+        displayAlert(true, "Impossible de sauvegarder les tags");
       });
   }
 
@@ -109,6 +109,6 @@ function categoriesController($scope, $http){
     $scope.errorMessage=message;
   }
 
-  // Au chargement du controller, on charge les catégories
-  loadCategories();
+  // Au chargement du controller, on charge les tags
+  loadTags();
 }
