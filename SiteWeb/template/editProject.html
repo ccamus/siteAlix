@@ -18,12 +18,6 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="sousTitreFr" class="col-lg-2 control-label">Sous-titre</label>
-      <div class="col-lg-10">
-        <input class="form-control" id="sousTitreFr" placeholder="Sous-titre" type="text" ng-model="sousTitreFr">
-      </div>
-    </div>
-    <div class="form-group">
       <label for="descriptionFr" class="col-lg-2 control-label">Description</label>
       <div class="col-lg-10">
         <textarea class="form-control" rows="3" id="descriptionFr" ng-model="descriptionFr"></textarea>
@@ -39,12 +33,6 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="sousTitreEn" class="col-lg-2 control-label">Sous-titre</label>
-      <div class="col-lg-10">
-        <input class="form-control" id="sousTitreEn" placeholder="Sous-titre" type="text" ng-model="sousTitreEn">
-      </div>
-    </div>
-    <div class="form-group">
       <label for="descriptionEn" class="col-lg-2 control-label">Description</label>
       <div class="col-lg-10">
         <textarea class="form-control" rows="3" id="descriptionEn" ng-model="descriptionEn"></textarea>
@@ -56,19 +44,9 @@
   <div class="form-group">
     <label for="tags" class="col-lg-2 control-label">Tags</label>
     <div class="col-lg-10">
-      <select multiple class="form-control" ng-model="tags">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+      <select multiple class="form-control" ng-model="tags.selected">
+        <option ng-repeat="item in tags" value="{{item.id}}">{{item.tag}}</option>
       </select>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="miniature" class="col-lg-2 control-label">Miniature</label>
-    <div class="col-lg-10">
-      <input id="miniature" type="file" ng-model="miniature">
     </div>
   </div>
   <div class="form-group">
@@ -83,4 +61,5 @@
       <input id="imgBasse" type="file" ng-model="imgBasse">
     </div>
   </div>
+  <button class="btn btn-default" type="button" ng-click="addTag()">Ajouter</button>
 </form>
