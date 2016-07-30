@@ -71,12 +71,14 @@ adminsite.controller('tagsController', ['$scope', '$http', 'listTagService', 'di
     // Ajoute un tag sans l'enregistrer
     $scope.addTag = function(){
       $scope.tags.push({'id':-1,'tagFr':$scope.addedTagFr,'tagEn':$scope.addedTagEn});
-      $scope.addedTag="";
+      $scope.addedTagFr="";
+      $scope.addedTagEn="";
     }
     // Initialise l'affichage
     $scope.init = function(){
       loadTags();
-      $scope.addedTag="";
+      $scope.addedTagFr="";
+      $scope.addedTagEn="";
     }
     // Enregistre les opérations
     $scope.enregistrer = function(){

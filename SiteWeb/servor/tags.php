@@ -95,7 +95,6 @@ function addNewElements($tags){
       }
     }
   }
-
   // S'il y a des items à ajouter
   if($hasItemToInsert){
     try {
@@ -104,9 +103,11 @@ function addNewElements($tags){
       $prep = $pdo->prepare($requete);
       $index = 1;
       foreach($tags as $item){
-        $prep->bindValue($index, $item->getTagFr(), PDO::PARAM_STR);
-        $prep->bindValue($index+1, $item->getTagEn(), PDO::PARAM_STR);
-        $index = $index + 2;
+        if($item->getId() == -1){
+          $prep->bindValue($index, $item->getTagFr(), PDO::PARAM_STR);
+          $prep->bindValue($index+1, $item->getTagEn(), PDO::PARAM_STR);
+          $index = $index + 2;
+        }
       }
       // Puis on l'exécute
       $reqOk = $prep->execute();
@@ -166,7 +167,9 @@ function deleteElements($tagLists){
 function transformToTagList($list){
   $newTags = array();
   foreach($list as $item){
-    $tag = new Tag($item->id, $item->tagFr, $item->tagEn);
+    $tagFr = isset($item->tagFr) ? $item->tagFr : "";
+    $tagEn = isset($item->tagEn) ? $item->tagEn : "";
+    $tag = new Tag($item->id, $tagFr, $tagEn);
     array_push($newTags, $tag);
   }
   return $newTags;
