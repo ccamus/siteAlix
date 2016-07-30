@@ -12,6 +12,10 @@ angular.module('adminsite').
           templateUrl: 'template/tags.html',
           controller : 'tagsController'
         }).
+        when('/editProject', {
+          templateUrl: 'template/editProject.html',
+          controller : 'editProjectController'
+        }).
         otherwise('/accueil');
     }
 ]);

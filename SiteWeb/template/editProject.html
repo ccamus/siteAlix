@@ -1,0 +1,86 @@
+<div class="page-header">
+  <h1>Édition d'un projet</h1>
+</div>
+<br/>
+<div class="alert {{isError ? 'alert-danger' : 'alert-success'}}" role="alert" ng-show="isAlert"><b>{{errorMessage}}</b></div>
+<form class="form-horizontal">
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="{{displayFr ? 'active' : ''}}"><a ng-click="displayFr=true;displayEn=false">Version française</a></li>
+    <li role="presentation" class="{{displayEn ? 'active' : ''}}"><a ng-click="displayEn=true;displayFr=false">Version anglaise</a></li>
+  </ul>
+  <br/>
+  <!-- Version française -->
+  <div ng-show="displayFr">
+    <div class="form-group">
+      <label for="titreFr" class="col-lg-2 control-label">Titre</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="titreFr" placeholder="Titre" type="text" ng-model="titreFr">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="sousTitreFr" class="col-lg-2 control-label">Sous-titre</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="sousTitreFr" placeholder="Sous-titre" type="text" ng-model="sousTitreFr">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="descriptionFr" class="col-lg-2 control-label">Description</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="descriptionFr" ng-model="descriptionFr"></textarea>
+      </div>
+    </div>
+  </div>
+    <!-- Version anglaise -->
+  <div ng-show="displayEn">
+    <div class="form-group">
+      <label for="titreEn" class="col-lg-2 control-label">Titre</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="titreEn" placeholder="Titre" type="text" ng-model="titreEn">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="sousTitreEn" class="col-lg-2 control-label">Sous-titre</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="sousTitreEn" placeholder="Sous-titre" type="text" ng-model="sousTitreEn">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="descriptionEn" class="col-lg-2 control-label">Description</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="descriptionEn" ng-model="descriptionEn"></textarea>
+      </div>
+    </div>
+  </div>
+  <br/><br/>
+  <!-- Champs communs -->
+  <div class="form-group">
+    <label for="tags" class="col-lg-2 control-label">Tags</label>
+    <div class="col-lg-10">
+      <select multiple class="form-control" ng-model="tags">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="miniature" class="col-lg-2 control-label">Miniature</label>
+    <div class="col-lg-10">
+      <input id="miniature" type="file" ng-model="miniature">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="imgHaute" class="col-lg-2 control-label">Image haute</label>
+    <div class="col-lg-10">
+      <input id="imgHaute" type="file" ng-model="imgHaute">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="imgBasse" class="col-lg-2 control-label">Image basse</label>
+    <div class="col-lg-10">
+      <input id="imgBasse" type="file" ng-model="imgBasse">
+    </div>
+  </div>
+</form>
