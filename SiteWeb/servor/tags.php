@@ -45,7 +45,7 @@ function listTags(){
 
     // On boucle sur les résultats
     foreach($pdo->query($query) as $row) {
-      $tag = new Tag($row['id'], $row['tag']);
+      $tag = new Tag($row['id'], $row['tagFr'], $row['tagEn']);
       array_push($tagList, $tag->toString());
     }
   }catch(PDOException $e) {
@@ -83,26 +83,35 @@ function update(){
  */
 function addNewElements($tags){
   $hasItemToInsert = false;
-  $requete = "INSERT INTO TAG (tag) VALUES";
+  $requete = "INSERT INTO TAG (tagFr, tagEn) VALUES";
   // Création de la requête d'ajout
   foreach($tags as $item){
     if($item->getId() == -1){
       if(!$hasItemToInsert){
         $hasItemToInsert = true;
-        $requete .= " (\"" . $item->getTag() . "\")";
+        $requete .= " (?, ?)";
       } else {
-        $requete .= ", (\"" . $item->getTag() . "\")";
+        $requete .= ", (?, ?)";
       }
     }
   }
 
-  // S'il y a des items à ajouter, on lance la requête
+  // S'il y a des items à ajouter
   if($hasItemToInsert){
     try {
       $pdo = getBddConnexion();
-      $nbAdded = $pdo->exec($requete . ";");
-      if($nbAdded == 0){
-        echo "Erreur lors de l'ajout des catégories";
+      // On prépare la requête
+      $prep = $pdo->prepare($requete);
+      $index = 1;
+      foreach($tags as $item){
+        $prep->bindValue($index, $item->getTagFr(), PDO::PARAM_STR);
+        $prep->bindValue($index+1, $item->getTagEn(), PDO::PARAM_STR);
+        $index = $index + 2;
+      }
+      // Puis on l'exécute
+      $reqOk = $prep->execute();
+      if(!$reqOk){
+        echo "Erreur lors de l'ajout des tags";
         return 500;
       }
     }catch(PDOException $e) {
@@ -157,7 +166,7 @@ function deleteElements($tagLists){
 function transformToTagList($list){
   $newTags = array();
   foreach($list as $item){
-    $tag = new Tag($item->id, $item->tag);
+    $tag = new Tag($item->id, $item->tagFr, $item->tagEn);
     array_push($newTags, $tag);
   }
   return $newTags;

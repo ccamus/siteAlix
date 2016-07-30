@@ -2,18 +2,21 @@
   <h1>Liste des tags</h1>
 </div>
 <br/>
+<p style="padding-left: 70px;">Français/Anglais</p>
 <div class="alert {{isError ? 'alert-danger' : 'alert-success'}}" role="alert" ng-show="isAlert"><b>{{errorMessage}}</b></div>
 <ul class="listTags">
   <li ng-repeat="item in tags">
     <button type="button" class="btn btn-danger btn-xs" ng-click="delTag(item.id)" title="Supprimer">
       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
     </button>
-    {{item.tag}}
+    {{item.tagFr}}/{{item.tagEn}}
   </li>
 </ul>
 <br/><br/>
+  <label for="tag" class="control-label">Nouveau tag</label>
 <div class="input-group">
-  <input placeholder="Nouveau tag" class="form-control" type="text" size="30" maxlength="50" ng-model="addedTag">
+  <input placeholder="Version française" class="form-control" type="text" size="30" maxlength="50" ng-model="addedTagFr">
+  <input placeholder="Version anglaise" class="form-control" type="text" size="30" maxlength="50" ng-model="addedTagEn">
   <button class="btn btn-default" type="button" ng-click="addTag()">Ajouter</button>
 </div>
 <br/><br/><br/><br/>

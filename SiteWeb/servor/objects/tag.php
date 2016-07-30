@@ -1,19 +1,25 @@
 <?php
 class Tag{
   private $id;
-  private $tag;
+  private $tagFr;
+  private $tagEn;
 
-  public function __construct($id, $tag){
+  public function __construct($id, $tagFr, $tagEn){
     $this->id = $id;
-    $this->tag = $tag;
+    $this->tagFr = $tagFr;
+    $this->tagEn = $tagEn;
   }
 
   public function getId(){
     return $this->id;
   }
 
-  public function getTag(){
-    return $this->tag;
+  public function getTagFr(){
+    return $this->tagFr;
+  }
+
+  public function getTagEn(){
+    return $this->tagEn;
   }
 
   public function toString() {
