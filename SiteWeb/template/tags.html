@@ -2,14 +2,14 @@
   <h1>Liste des tags</h1>
 </div>
 <br/>
-<p style="padding-left: 70px;">Français/Anglais</p>
+<p style="padding-left: 70px;">Français / Anglais</p>
 <div class="alert {{isError ? 'alert-danger' : 'alert-success'}}" role="alert" ng-show="isAlert"><b>{{errorMessage}}</b></div>
 <ul class="listTags">
   <li ng-repeat="item in tags">
     <button type="button" class="btn btn-danger btn-xs" ng-click="delTag(item.id)" title="Supprimer">
       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
     </button>
-    {{item.tagFr}}/{{item.tagEn}}
+    {{item.tagFr}} / {{item.tagEn}}
   </li>
 </ul>
 <br/><br/>
