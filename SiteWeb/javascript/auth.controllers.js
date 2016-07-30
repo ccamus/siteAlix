@@ -5,7 +5,7 @@ authentificator.controller('connexionController', ['$scope', '$http', connexionC
 
 
 function connexionController($scope, $http){
-  $scope.login = function(){
+  $scope.login = function(){console.log("la");
     var req = {
 					method: 'POST',
 					url: 'servor/auth.php?action=auth',
