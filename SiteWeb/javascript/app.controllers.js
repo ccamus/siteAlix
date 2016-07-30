@@ -1,13 +1,10 @@
 'use strict';
 var adminsite = angular.module('adminsite');
-adminsite.controller('accueilController', ['$scope', '$http', accueilController]);
-adminsite.controller('barController', ['$scope', '$http', barController]);
-adminsite.controller('tagsController', ['$scope', '$http', tagsController]);
 
 /*
  * Controller de la bar de menu
  */
-function barController($scope, $http){
+adminsite.controller('barController', ['$scope', '$http', function ($scope, $http){
   $scope.deconnexion = function(){
     var req = {
 					method: 'GET',
@@ -38,33 +35,29 @@ function barController($scope, $http){
       });
   }
   testConnexion();
-}
+}]);
 
 /*
  * Controller de l'accueil de l'adminsite
  */
-function accueilController($scope, $http){
+adminsite.controller('accueilController', ['$scope', '$http', function ($scope, $http){
 
   CKEDITOR.replace( 'editor1' );
-}
+}]);
 
 /*
  * Controller de l'administration des tags
  */
-function tagsController($scope, $http){
+adminsite.controller('tagsController', ['$scope', '$http', 'listTagService', 'displayAlert',
+  function ($scope, $http, listTagService, displayAlert){
   // Chargement de la liste des tags
   var loadTags = function(){
-    var req = {
-          method: 'GET',
-          url: 'servor/tags.php?action=list',
-          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        };
-    $http(req).then(
+    listTagService().then(
       function successCallback(response) {
         $scope.tags=response.data;
       },
       function errorCallback(response) {
-        displayAlert(true, "Impossible de récupérer la liste des tags");
+        displayAlert($scope, true, "Impossible de récupérer la liste des tags");
       });
   }
   // Supprime un tag sans enregistrer
@@ -95,20 +88,28 @@ function tagsController($scope, $http){
         };
     $http(req).then(
       function successCallback(response) {
-        displayAlert(false,"Les tags ont été sauvegardées");
+        displayAlert($scope, false,"Les tags ont été sauvegardées");
         $scope.init();
       },
       function errorCallback(response) {
-        displayAlert(true, "Impossible de sauvegarder les tags");
+        displayAlert($scope, true, "Impossible de sauvegarder les tags");
       });
-  }
-
-  var displayAlert = function(isError, message){
-    $scope.isAlert=true;
-    $scope.isError=isError;
-    $scope.errorMessage=message;
   }
 
   // Au chargement du controller, on charge les tags
   loadTags();
-}
+}]);
+
+/*
+ * Controller de l'édition de fichiers
+ */
+adminsite.controller('editProjectController', ['$scope', '$http', function ($scope, $http){
+  listTagService().then(
+    function successCallback(response) {
+      $scope.tags=response.data;
+    },
+    function errorCallback(response) {
+      displayAlert(true, "Impossible de récupérer la liste des tags");
+    });
+  $scope.displayFr = true;
+}]);
