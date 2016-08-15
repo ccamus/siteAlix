@@ -41,8 +41,6 @@ adminsite.controller('barController', ['$scope', '$http', function ($scope, $htt
  * Controller de l'accueil de l'adminsite
  */
 adminsite.controller('accueilController', ['$scope', '$http', function ($scope, $http){
-
-  CKEDITOR.replace( 'editor1' );
 }]);
 
 /*
@@ -103,12 +101,12 @@ adminsite.controller('tagsController', ['$scope', '$http', 'listTagService', 'di
 }]);
 
 /*
- * Controller de l'édition de fichiers
+ * Controller de l'édition de projets
  */
 adminsite.controller('editProjectController', ['$scope', '$http', 'listTagService', 'displayAlert',
   function ($scope, $http, listTagService, displayAlert){
-
-    var init = function(){
+    // Initialisation
+    var initEcran = function(){
       listTagService().then(
         function successCallback(response) {
           $scope.tags=response.data;
@@ -117,7 +115,39 @@ adminsite.controller('editProjectController', ['$scope', '$http', 'listTagServic
           displayAlert($scope, true, "Impossible de récupérer la liste des tags");
         });
       $scope.displayFr = true;
+
+      CKEDITOR.replace('descriptionFr');
+      CKEDITOR.replace('descriptionEn');
+
+      $scope.resetEcran();
     }
 
-    init();
+    // Initalise un projet
+    var initProjet = function(){
+      return {'titreFr':'', 'descriptionFr' : '', 'clientFr' : '',
+          'titreEn':'', 'descriptionEn' : '', 'clientEn' : '',
+          'tags' : {'selected' :[]},
+          'imgHaute' : '',
+          'imgsBasse' : []};
+    }
+
+    // Réinitialise l'écran
+    $scope.resetEcran = function(){
+      $scope.projet = initProjet();
+      CKEDITOR.instances.descriptionFr.setData("");
+      CKEDITOR.instances.descriptionEn.setData("");
+    }
+
+    // Ajout d'une image
+    $scope.addImage = function(){
+      $scope.projet.imgsBasse.push({'path':'', 'id' : Math.floor(-Math.random() * (1000000 - 1) + 1)});
+    }
+    // Enregistrement du projet
+    $scope.enregistrer = function(){
+      $scope.projet.descriptionFr = CKEDITOR.instances.descriptionFr.getData();
+      $scope.projet.descriptionEn = CKEDITOR.instances.descriptionEn.getData();
+      console.log($scope.projet);
+    }
+
+    initEcran();
 }]);
