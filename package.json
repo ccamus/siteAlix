@@ -3,10 +3,16 @@
   "version": "0.0.0",
   "description": "Site web d'Alix",
   "main": "index.js",
+  "config":{
+    "sourcefolder": "/home/charlie/Documents/travail/Site-Alix/Repo/SiteWeb/",
+    "libfolder": "/home/charlie/Documents/travail/Site-Alix/Repo/lib/",
+    "libdeploy": "/var/www/lib/",
+    "sourcedeploy": "/var/www/servor/"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "logs" : "tail -f /var/log/apache2/error.log",
-    "deploy" : "sudo rm -rf /var/www/servor/*;sudo cp -R ~/Documents/travail/Site-Alix/Repo/SiteWeb/* /var/www/servor/"
+    "deploy" : "sudo rm -rf $npm_package_config_sourcedeploy*;sudo cp -R $npm_package_config_sourcefolder* $npm_package_config_sourcedeploy",
+    "deployLib" : "sudo rm -rf $npm_package_config_libdeploy*;sudo cp -R $npm_package_config_libfolder* $npm_package_config_libdeploy"
   },
   "repository": {
     "type": "git",
