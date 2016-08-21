@@ -1,0 +1,20 @@
+{
+  "name": "siteAlix",
+  "version": "0.0.0",
+  "description": "Site web d'Alix",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "logs" : "tail -f /var/log/apache2/error.log",
+    "deploy" : "sudo rm -rf /var/www/servor/*;sudo cp -R ~/Documents/travail/Site-Alix/Repo/SiteWeb/* /var/www/servor/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ccamus/siteAlix.git"
+  },
+  "author": "charlie camus",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/ccamus/siteAlix/issues"
+  }
+}
